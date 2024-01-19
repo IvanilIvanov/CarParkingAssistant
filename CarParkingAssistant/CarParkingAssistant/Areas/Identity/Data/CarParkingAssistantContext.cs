@@ -1,8 +1,7 @@
-﻿using CarParkingAssistant.Areas.Identity.Data.Entities;
+﻿using CarParkingAssistant.Areas.Identity.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using System.Reflection.Emit;
 
 namespace CarParkingAssistant.Data;
 
@@ -13,14 +12,11 @@ public class CarParkingAssistantContext : IdentityDbContext<CarParkingAssistantU
     {
     }
 
-    public DbSet<Parking> Parkings { get; set; }
-    public DbSet<Worker> Workers { get; set; }
-    public DbSet<Booking> Bookings { get; set; }
-
     protected override void OnModelCreating(ModelBuilder builder)
     {
-        builder.Entity<ParkingBooking>()
-    .HasKey(pb => new { pb.ParkingId, pb.BookingId });
-
+        base.OnModelCreating(builder);
+        // Customize the ASP.NET Identity model and override the defaults if needed.
+        // For example, you can rename the ASP.NET Identity table names and more.
+        // Add your customizations after calling base.OnModelCreating(builder);
     }
 }
