@@ -1,4 +1,5 @@
 using CarParkingAssistant.Data;
+using CarParkingAssistant.Infrastructure.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
