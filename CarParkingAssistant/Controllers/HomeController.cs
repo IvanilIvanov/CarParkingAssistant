@@ -1,8 +1,8 @@
-using CarParkingApplication.Models;
+using CarParkingAssistant.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace CarParkingApplication.Controllers
+namespace CarParkingAssistant.Controllers
 {
     public class HomeController : Controller
     {

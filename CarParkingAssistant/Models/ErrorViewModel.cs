@@ -1,4 +1,4 @@
-namespace CarParkingApplication.Models
+namespace CarParkingAssistant.Models
 {
     public class ErrorViewModel
     {
