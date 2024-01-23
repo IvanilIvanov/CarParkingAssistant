@@ -25,6 +25,7 @@ namespace CarParkingAssistant.Infrastructure.Data.Models
 
         [Required]
         [Range(0.5, 10, ErrorMessage = "{0} must be between {1} and {2}")]
+        [Column(TypeName = "decimal(4, 2)")]
         public required decimal Price { get; set; }
 
         [Required]

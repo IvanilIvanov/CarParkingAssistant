@@ -16,6 +16,7 @@ namespace CarParkingAssistant.Infrastructure.Data.Models
         public Guid Id { get; set; }
 
         [Required]
+        [StringLength(10, ErrorMessage = "The {0} must be between {2} and {1} characters long.", MinimumLength = 7)]
         public required string LicensePlate { get; set; }
 
         [Required]
@@ -26,6 +27,7 @@ namespace CarParkingAssistant.Infrastructure.Data.Models
 
         [Required]
         [Range(2, 20, ErrorMessage = "Must be between 2 and 20!")]
+        [Column(TypeName = "decimal(4, 2)")]
         public required decimal TotalPrice { get; set; }
 
         [Required]
