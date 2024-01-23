@@ -18,6 +18,16 @@ namespace CarParkingAssistant.Controllers
             return View();
         }
 
+        public IActionResult Booking()
+        {
+            return View();
+        }
+
+        public IActionResult Parkings()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();
