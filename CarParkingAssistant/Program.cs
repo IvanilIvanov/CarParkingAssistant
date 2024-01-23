@@ -15,6 +15,16 @@ builder.Services.AddDefaultIdentity<CarParkingAssistantUser>(options => options.
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 
+
+builder.Services.AddAuthentication().AddFacebook(facebookOptions =>
+{
+    facebookOptions.AppId = builder.Configuration["Authentication:Facebook:AppId"];
+    facebookOptions.AppSecret = builder.Configuration["Authentication:Facebook:AppSecret"];
+});
+
+
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
