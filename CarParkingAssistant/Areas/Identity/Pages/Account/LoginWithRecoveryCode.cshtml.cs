@@ -5,6 +5,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
+using CarParkingAssistant.Infrastructure.Data.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -14,13 +15,13 @@ namespace CarParkingAssistant.Areas.Identity.Pages.Account
 {
     public class LoginWithRecoveryCodeModel : PageModel
     {
-        private readonly SignInManager<IdentityUser> _signInManager;
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly SignInManager<CarParkingAssistantUser> _signInManager;
+        private readonly UserManager<CarParkingAssistantUser> _userManager;
         private readonly ILogger<LoginWithRecoveryCodeModel> _logger;
 
         public LoginWithRecoveryCodeModel(
-            SignInManager<IdentityUser> signInManager,
-            UserManager<IdentityUser> userManager,
+            SignInManager<CarParkingAssistantUser> signInManager,
+            UserManager<CarParkingAssistantUser> userManager,
             ILogger<LoginWithRecoveryCodeModel> logger)
         {
             _signInManager = signInManager;
@@ -61,12 +62,7 @@ namespace CarParkingAssistant.Areas.Identity.Pages.Account
         public async Task<IActionResult> OnGetAsync(string returnUrl = null)
         {
             // Ensure the user has gone through the username & password screen first
-            var user = await _signInManager.GetTwoFactorAuthenticationUserAsync();
-            if (user == null)
-            {
-                throw new InvalidOperationException($"Unable to load two-factor authentication user.");
-            }
-
+            _ = await _signInManager.GetTwoFactorAuthenticationUserAsync() ?? throw new InvalidOperationException($"Unable to load two-factor authentication user.");
             ReturnUrl = returnUrl;
 
             return Page();
@@ -79,12 +75,7 @@ namespace CarParkingAssistant.Areas.Identity.Pages.Account
                 return Page();
             }
 
-            var user = await _signInManager.GetTwoFactorAuthenticationUserAsync();
-            if (user == null)
-            {
-                throw new InvalidOperationException($"Unable to load two-factor authentication user.");
-            }
-
+            var user = await _signInManager.GetTwoFactorAuthenticationUserAsync() ?? throw new InvalidOperationException($"Unable to load two-factor authentication user.");
             var recoveryCode = Input.RecoveryCode.Replace(" ", string.Empty);
 
             var result = await _signInManager.TwoFactorRecoveryCodeSignInAsync(recoveryCode);
