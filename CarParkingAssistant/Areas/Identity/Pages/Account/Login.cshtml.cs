@@ -75,6 +75,8 @@ namespace CarParkingAssistant.Areas.Identity.Pages.Account
             /// </summary>
             [Required]
             [DataType(DataType.Password)]
+            [MinLength(6, ErrorMessage = "Password too short")]
+            [MaxLength(64)]
             public string Password { get; set; }
 
             /// <summary>
