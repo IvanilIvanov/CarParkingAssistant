@@ -12,7 +12,7 @@ ul {
 }
 
 body {
-    background: linear-gradient(150deg, #525CEB, #BFCFE7);
+    background: linear-gradient(180deg, #BFCFE7, #FFFFFF);
     background-size: contain;
     background-repeat: no-repeat;
     width: 100%;
@@ -44,12 +44,12 @@ a.hyperlink-undecorated {
 }
 
 
-.site-header {
-    margin: 0px 6px 6px 6px;
+.site-header 
+{
+    background-color: var(--color-dark);
     padding: 0px 32px;
     display: flex;
     justify-content: space-between;
-    border-radius: 8px;
     font-size: 24px;
     transition: background-color .5s;
 }
@@ -117,28 +117,27 @@ a.hyperlink-undecorated {
     border-radius: 6px;
 }
 
-
 .site-content {
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
     width: 80%;
-    margin: auto;
     align-content: center;
-    background-color: var(--primary-color-light);
-    
+    background-color: rgba(var(--color-light), 0.2);
+    border: 2px solid var(--color-dark);
     border-radius: 8px;
+    margin: 20px auto;
+    
 }
 
 
 .site-footer {
     width: 100%;
     height: 50px;
-    background-color: #F8EDFF;
+    background-color: var(--color-dark);
+    color: var(--color-light);
     padding: 20px;
-    position: absolute;
-    bottom: 0px;
 }
 
 .form-label {
