@@ -1,8 +1,27 @@
-﻿@*
+﻿@using CarParkingAssistant.Core.Models
+@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
-@{
-}
-<div>
-    <h1> ADMIN/PARKING/</h1>
+@model AdminParkingViewModel
+
+<div class="parking-list">
+    <table>
+        <tr>
+            <th>Address</th>
+            <th>Slots</th>
+            <th>Price</th>
+            <th>Worker</th>
+        </tr>
+        @foreach (var parking in Model.Parkings)
+        {
+            <tr>
+                <td>@parking.Address</td>
+                <td>@parking.NumSlots</td>
+                <td>@parking.Price</td>
+                <td>@($"{parking.Worker.FirstName} {parking.Worker.LastName}")</td>
+            </tr>
+        }
+    </table>
+
+    <button>Add Parking</button>
 </div>
