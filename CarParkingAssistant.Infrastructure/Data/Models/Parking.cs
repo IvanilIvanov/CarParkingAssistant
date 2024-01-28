@@ -29,8 +29,9 @@ namespace CarParkingAssistant.Infrastructure.Data.Models
         public required decimal Price { get; set; }
 
         [Required]
+        [ForeignKey(nameof(Worker))]
         public Guid WorkerId { get; set; }
-        public required Worker Worker { get; set; }
+        public Worker Worker { get; set; }
 
         public required virtual ICollection<Booking> Bookings { get; set; }
     }
