@@ -1,3 +1,4 @@
+using CarParkingAssistant.Core.Constants;
 using CarParkingAssistant.Infrastructure.Data;
 using CarParkingAssistant.Infrastructure.Data.Models;
 using Microsoft.AspNetCore.Identity;
@@ -12,7 +13,9 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<CarParkingAssistantUser>(options => options.SignIn.RequireConfirmedAccount = false)
+        .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
+
 builder.Services.AddControllersWithViews();
 
 
