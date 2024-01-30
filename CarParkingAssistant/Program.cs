@@ -2,6 +2,7 @@ using CarParkingAssistant.Core.Constants;
 using CarParkingAssistant.Infrastructure.Data;
 using CarParkingAssistant.Infrastructure.Data.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -55,12 +56,12 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
+    name: "Area",
+    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+
+app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
-app.
-    MapControllerRoute(
-    name: "Admin",
-    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
 app.MapRazorPages();
 
 app.Run();
