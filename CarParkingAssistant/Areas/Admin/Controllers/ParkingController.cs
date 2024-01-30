@@ -20,5 +20,10 @@ namespace CarParkingAssistant.Areas.Admin.Controllers
             adminParkingViewModel.Parkings = parkings;
             return View(adminParkingViewModel);
         }
+
+        public async Task<IActionResult> Add()
+        {
+            return View();
+        }
     }
 }

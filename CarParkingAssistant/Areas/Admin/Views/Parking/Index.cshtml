@@ -1,7 +1,4 @@
 ﻿@using CarParkingAssistant.Core.Models
-@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
 @model AdminParkingViewModel
 
 <div class="parking-list">
@@ -23,5 +20,8 @@
         }
     </table>
 
-    <button>Add Parking</button>
+
+    <a asp-area="admin" asp-action="add" asp-controller="parking">
+        Add
+    </a>
 </div>
