@@ -124,10 +124,11 @@ a.hyperlink-undecorated {
     text-align: center;
     width: 80%;
     align-content: center;
-    background-color: rgba(var(--color-light), 0.2);
+    background-color: var(--primary-color-light);
     border: 2px solid var(--color-dark);
     border-radius: 8px;
     margin: 20px auto;
+    padding: 20px;
     
 }
 
@@ -138,6 +139,8 @@ a.hyperlink-undecorated {
     background-color: var(--color-dark);
     color: var(--color-light);
     padding: 20px;
+    position: absolute;
+    bottom: 0px
 }
 
 .form-label {
