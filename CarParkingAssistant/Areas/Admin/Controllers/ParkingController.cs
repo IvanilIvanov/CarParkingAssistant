@@ -21,9 +21,32 @@ namespace CarParkingAssistant.Areas.Admin.Controllers
             return View(adminParkingViewModel);
         }
 
+        [HttpGet]
         public async Task<IActionResult> Add()
         {
             return View();
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Add(AddParkingViewModel model)
+        {
+            if(!ModelState.IsValid)
+            {
+                return View();
+            }
+            else
+            {
+                Parking parking = new();
+                parking.Address = model.Address;
+                parking.NumSlots = model.NumSlots;
+                parking.Price = model.Price;
+                await context.AddAsync(parking);
+                await context.SaveChangesAsync();
+
+            }
+            Console.WriteLine(model.Address);
+            return View();
+        }
+        
     }
 }
