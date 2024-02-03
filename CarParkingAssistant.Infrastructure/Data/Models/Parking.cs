@@ -28,9 +28,9 @@ namespace CarParkingAssistant.Infrastructure.Data.Models
         [Column(TypeName = "decimal(4, 2)")]
         public required decimal Price { get; set; }
 
-        [Required]
+        
         [ForeignKey(nameof(Worker))]
-        public Guid WorkerId { get; set; }
+        public Guid? WorkerId { get; set; }
         public Worker Worker { get; set; }
 
         public required virtual ICollection<Booking> Bookings { get; set; }
