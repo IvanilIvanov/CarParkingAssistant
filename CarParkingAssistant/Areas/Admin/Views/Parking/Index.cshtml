@@ -1,32 +1,53 @@
 ﻿@using CarParkingAssistant.Core.Models
 @model AdminParkingViewModel
 
-<div class="parking-list">
-    <table>
-        <tr>
-            <th>Address</th>
-            <th>Slots</th>
-            <th>Price</th>
-            <th>Worker</th>
-        </tr>
-        @foreach (var parking in Model.Parkings)
-        {
+<div class="item-table-div">
+    <div class="items-table-search-div">
+        Search:
+        <input class="items-table-searchbar" type="text" />
+        <div class="items-table-search-button">Submit</div>
+    </div>
+    <table class="items-table">
+        <thead>
             <tr>
-                <td>@parking.Address</td>
-                <td>@parking.NumSlots</td>
-                <td>@parking.Price</td>
-                @{
-                    if (parking.Worker != null)
-                    {
-                        <td>($"{parking.Worker.FirstName} {parking.Worker.LastName}")</td>
-                    }
-                }
+                <th>Address</th>
+                <th>Slots</th>
+                <th>Price</th>
+                <th>Worker</th>
+                <th>Controls</th>
             </tr>
-        }
-    </table>
+        </thead>
+        <tbody>
+            @foreach (var parking in Model.Parkings)
+            {
+                <tr>
+                    <td>@parking.Address</td>
+                    <td>@parking.NumSlots</td>
+                    <td>@parking.Price</td>
+                    <td>
+                        @{
+                            if (parking.Worker != null)
+                            {
+                                @($"{parking.Worker.FirstName} {parking.Worker.LastName}")
+                            }
+                            else
+                            {
+                                @("-")
+                            }
+                        }
+                    </td>
+                    <td>
+                        <div class="items-table-controls">
+                            <a href="/"> <i class="fa-solid fa-pen-to-square"></i></a>
+                            <a href=""><i class="fa-solid fa-trash"></i></a>
+                        </div>
+                    </td>
 
-   
-    
-    
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>
 <a asp-area="Admin" asp-controller="Parking" asp-action="Add">ADD</a>
+<script src="~/js/parkingList.js"></script>
+<script src="https://kit.fontawesome.com/a3d546e7b4.js" crossorigin="anonymous"></script>
