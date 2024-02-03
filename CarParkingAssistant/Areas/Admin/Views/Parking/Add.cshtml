@@ -1,9 +1,20 @@
-﻿@*
+﻿@using CarParkingAssistant.Core.Models
+@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@ 
+@model AdminParkingViewModel
 
-<div>
-    <h1>
-        ADMIN/PARKING/ADD
-    </h1>
+<div class="parking-list">
+<form>
+
+    <h1>Add parking</h1>
+        @* <div class="user-input-with-label">
+            <label asp-for="Input.Email" class="form-label">Email</label>
+            <span asp-validation-for="Input.Email" class="text-danger"></span>
+            <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+        </div> *@
+
+</form>
+
+    
 </div>
