@@ -15,7 +15,12 @@
                 <td>@parking.Address</td>
                 <td>@parking.NumSlots</td>
                 <td>@parking.Price</td>
-                <td>@($"{parking.Worker.FirstName} {parking.Worker.LastName}")</td>
+                @{
+                    if (parking.Worker != null)
+                    {
+                        <td>($"{parking.Worker.FirstName} {parking.Worker.LastName}")</td>
+                    }
+                }
             </tr>
         }
     </table>
