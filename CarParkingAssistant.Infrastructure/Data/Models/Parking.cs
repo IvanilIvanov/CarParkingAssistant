@@ -21,7 +21,7 @@ namespace CarParkingAssistant.Infrastructure.Data.Models
         public string? Address { get; set; }
 
         [Required]
-        [MinLength(1, ErrorMessage = "Parkings slots cannot be less than {1}")]
+        [Range(1, 1000, ErrorMessage = "{0} must be between {1} and {2}")]
         public int NumSlots { get; set; }
 
         [Required]

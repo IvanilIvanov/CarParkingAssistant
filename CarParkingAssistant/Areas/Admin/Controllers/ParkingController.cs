@@ -39,7 +39,7 @@ namespace CarParkingAssistant.Areas.Admin.Controllers
                 Parking parking = new();
                 parking.Address = model.Address;
                 parking.NumSlots = model.NumSlots;
-                parking.Price = model.Price;
+                parking.Price = decimal.Parse( model.Price);
                 await context.AddAsync(parking);
                 await context.SaveChangesAsync();
 
@@ -54,6 +54,25 @@ namespace CarParkingAssistant.Areas.Admin.Controllers
             context.Parkings.Remove(parking);
             await context?.SaveChangesAsync();
             return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public async Task<IActionResult> Edit(Guid id)
+        {
+            Parking parking = await context.Parkings.FirstOrDefaultAsync(p => p.Id == id);
+
+            return View(parking);
+        }
+        [HttpPost]
+        public async Task<IActionResult> Edit(Parking parking)
+        {
+            Console.WriteLine(parking.Address);
+            Parking parking2 = await context.Parkings.FirstOrDefaultAsync(p => p.Id == parking.Id);
+            parking2.Address = parking.Address;
+            parking2.NumSlots = parking.NumSlots;
+            parking2.Price = parking.Price;
+            await context.SaveChangesAsync();
+
+            return View(parking);
         }
     }
 }

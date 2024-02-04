@@ -20,6 +20,6 @@ namespace CarParkingAssistant.Core.Models
         [Required]
         [Range(0.5, 10, ErrorMessage = "{0} must be between {1} and {2}")]
         
-        public required decimal Price { get; set; }
+        public required string Price { get; set; }
     }
 }
