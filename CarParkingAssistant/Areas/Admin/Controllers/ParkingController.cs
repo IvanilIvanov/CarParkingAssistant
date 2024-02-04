@@ -48,5 +48,12 @@ namespace CarParkingAssistant.Areas.Admin.Controllers
             return View();
         }
         
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            Parking parking = await context.Parkings.FirstOrDefaultAsync(p => p.Id == id);
+            context.Parkings.Remove(parking);
+            await context?.SaveChangesAsync();
+            return RedirectToAction("Index");
+        }
     }
 }
